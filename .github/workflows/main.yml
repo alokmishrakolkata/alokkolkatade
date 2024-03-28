@@ -79,4 +79,4 @@ jobs:
         source venv/bin/activate
         pwd
         ls -al
-        python selenium/test_test1.py
+        python tests/selenium/test_test1.py
