@@ -14,7 +14,8 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v2
       with:
-        ref: feature/testBranch  # Specify your branch name here
+        #ref: feature/testBranch  # Specify your branch name here
+        ref: main  # Specify your branch name here
 
     - name: Set up Python
       uses: actions/setup-python@v2
