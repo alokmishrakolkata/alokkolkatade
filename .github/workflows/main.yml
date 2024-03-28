@@ -70,11 +70,11 @@ jobs:
       run: |
         sfdx force:source:push -u ci-scratch-org
 
+    - name: Run Apex Tests excluding Managed Package Tests
+      run: |
+        sfdx force:apex:test:run -u ci-scratch-org --testlevel RunLocalTests --codecoverage
+
     - name: Run Selenium Tests
       run: |
         source venv/bin/activate
         python path/to/your_selenium_script.py
-
-    - name: Run Apex Tests excluding Managed Package Tests
-      run: |
-        sfdx force:apex:test:run -u ci-scratch-org --testlevel RunLocalTests --codecoverage
