@@ -4,7 +4,7 @@ on:
   push:
     branches:
       #- feature/your-branch-name  # Specify the branch you want to checkout from
-      - feature/master
+      - master
 
 jobs:
   test-salesforce-app:
