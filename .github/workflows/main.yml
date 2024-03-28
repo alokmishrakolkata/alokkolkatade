@@ -49,7 +49,7 @@ jobs:
     - name: Create Server Key File
       run: |
         echo "${{ secrets.SALESFORCE_SERVER_KEY }}" > server.key
-        sed -i 's/\\n/\n/g' salesforce_server.key
+        sed -i 's/\\n/\n/g' server.key
         echo "${{ secrets.SALESFORCE_USERNAME }}"
 
     - name: Authenticate with Salesforce
