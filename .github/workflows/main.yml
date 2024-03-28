@@ -3,7 +3,8 @@ name: Salesforce CI with Selenium Tests
 on:
   push:
     branches:
-      - feature/your-branch-name  # Specify the branch you want to checkout from
+      #- feature/your-branch-name  # Specify the branch you want to checkout from
+      - feature/master
 
 jobs:
   test-salesforce-app:
