@@ -77,4 +77,4 @@ jobs:
     - name: Run Selenium Tests
       run: |
         source venv/bin/activate
-        python path/to/test_test.py
+        python path/to/test_test1.py
