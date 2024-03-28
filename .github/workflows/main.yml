@@ -44,7 +44,7 @@ jobs:
 
     - name: Authenticate with Salesforce
       run: |
-        sfdx auth:jwt:grant --clientid ${{ secrets.SALESFORCE_CONSUMER_KEY }} --jwtkeyfile ${{ secret.SALESFORCE_SERVER_KEY }} --username ${{ secrets.SALESFORCE_USERNAME }} --setdefaultdevhubusername
+        sfdx auth:jwt:grant --clientid ${{ secrets.SALESFORCE_CONSUMER_KEY }} --jwtkeyfile ${{ secrets.SALESFORCE_SERVER_KEY }} --username ${{ secrets.SALESFORCE_USERNAME }} --setdefaultdevhubusername
       env:
         SALESFORCE_CONSUMER_KEY: ${{ secrets.SALESFORCE_CONSUMER_KEY }}
         SALESFORCE_USERNAME: ${{ secrets.SALESFORCE_USERNAME }}
