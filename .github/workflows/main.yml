@@ -41,6 +41,7 @@ jobs:
       run: |
         echo "${{ secrets.SALESFORCE_SERVER_KEY }}" > server.key
         chmod 600 server.key
+        echo "${{ secrets.SALESFORCE_USERNAME }}"
 
     - name: Authenticate with Salesforce
       run: |
