@@ -11,11 +11,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
+    - name: Checkout repository master
+      uses: actions/checkout@v3
       with:
         #ref: feature/testBranch  # Specify your branch name here
-        ref: main  # Specify your branch name here
+        ref: master  # Specify your branch name here
 
     - name: Set up Python
       uses: actions/setup-python@v2
