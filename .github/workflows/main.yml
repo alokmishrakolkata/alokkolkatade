@@ -44,10 +44,11 @@ jobs:
 
     - name: Authenticate with Salesforce
       run: |
-        sfdx auth:jwt:grant --clientid ${{ secrets.SALESFORCE_CONSUMER_KEY }} --jwtkeyfile server.key --username ${{ secrets.SALESFORCE_USERNAME }} --setdefaultdevhubusername
+        sfdx auth:jwt:grant --clientid ${{ secrets.SALESFORCE_CONSUMER_KEY }} --jwtkeyfile ${{ secret.SALESFORCE_SERVER_KEY }} --username ${{ secrets.SALESFORCE_USERNAME }} --setdefaultdevhubusername
       env:
         SALESFORCE_CONSUMER_KEY: ${{ secrets.SALESFORCE_CONSUMER_KEY }}
         SALESFORCE_USERNAME: ${{ secrets.SALESFORCE_USERNAME }}
+        SALESFORCE_SERVER_KEY: ${{ secrets.SALESFORCE_SERVER_KEY }}
         # Ensure to add SALESFORCE_CONSUMER_KEY, SALESFORCE_USERNAME, and the server.key to your repository's secrets.
 
     - name: Create Scratch Org
