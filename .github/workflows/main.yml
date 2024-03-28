@@ -1,0 +1,61 @@
+name: Salesforce CI with Selenium Tests
+
+on:
+  push:
+    branches:
+      - feature/your-branch-name  # Specify the branch you want to checkout from
+
+jobs:
+  test-salesforce-app:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+      with:
+        ref: feature/testBranch  # Specify your branch name here
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.9'
+
+    - name: Set up Python virtual environment
+      run: |
+        python -m venv venv
+        source venv/bin/activate
+
+    - name: Install Python dependencies
+      run: |
+        source venv/bin/activate
+        pip install --upgrade pip
+        pip install -r tests/requirements.txt
+
+    - name: Install Salesforce CLI
+      run: |
+        npm install -g sfdx-cli
+
+    - name: Authenticate with Salesforce
+      run: |
+        sfdx auth:jwt:grant --clientid ${{ secrets.SALESFORCE_CONSUMER_KEY }} --jwtkeyfile server.key --username ${{ secrets.SALESFORCE_USERNAME }} --setdefaultdevhubusername
+      env:
+        SALESFORCE_CONSUMER_KEY: ${{ secrets.SALESFORCE_CONSUMER_KEY }}
+        SALESFORCE_USERNAME: ${{ secrets.SALESFORCE_USERNAME }}
+        # Ensure to add SALESFORCE_CONSUMER_KEY, SALESFORCE_USERNAME, and the server.key to your repository's secrets.
+
+    - name: Create Scratch Org
+      run: |
+        sfdx force:org:create -f config/project-scratch-def.json -s -d 7 -a ci-scratch-org
+
+    - name: Push Source to Scratch Org
+      run: |
+        sfdx force:source:push -u ci-scratch-org
+
+    - name: Run Selenium Tests
+      run: |
+        source venv/bin/activate
+        python path/to/your_selenium_script.py
+
+    - name: Run Apex Tests excluding Managed Package Tests
+      run: |
+        sfdx force:apex:test:run -u ci-scratch-org --testlevel RunLocalTests --codecoverage
