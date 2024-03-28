@@ -41,7 +41,7 @@ jobs:
       env:
         SALESFORCE_CONSUMER_KEY: ${{ secrets.SALESFORCE_CONSUMER_KEY }}
         SALESFORCE_USERNAME: ${{ secrets.SALESFORCE_USERNAME }}
-        SALESFORCE_SERVER_KEY: ${{ secrets.SALESFORCE_SERVER_KEY }}
+        SALESFORCE_SERVER_KEY: ${{ secrets.SALESFORCE_SERVER_KEY1 }}
         # Ensure to add SALESFORCE_CONSUMER_KEY, SALESFORCE_USERNAME, and the server.key to your repository's secrets.
       run: | 
         echo "UserName is $SALESFORCE_USERNAME"
@@ -56,7 +56,7 @@ jobs:
       env:
         SALESFORCE_CONSUMER_KEY: ${{ secrets.SALESFORCE_CONSUMER_KEY }}
         SALESFORCE_USERNAME: ${{ secrets.SALESFORCE_USERNAME }}
-        SALESFORCE_SERVER_KEY: ${{ secrets.SALESFORCE_SERVER_KEY }}
+        SALESFORCE_SERVER_KEY: ${{ secrets.SALESFORCE_SERVER_KEY1 }}
         # Ensure to add SALESFORCE_CONSUMER_KEY, SALESFORCE_USERNAME, and the server.key to your repository's secrets.
       run: |
         sfdx auth:jwt:grant --clientid ${{ secrets.SALESFORCE_CONSUMER_KEY }} --jwtkeyfile server.key --username ${{ secrets.SALESFORCE_USERNAME }} --setdefaultdevhubusername
