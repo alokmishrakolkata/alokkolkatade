@@ -1,5 +1,5 @@
 @isTest //Annotation of test class Alok M
-public class AccountInsert
+public class TestAccountInsert
 {
 //define testmethod 
  public static testmethod void testinsert()
