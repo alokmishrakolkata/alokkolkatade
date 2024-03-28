@@ -52,7 +52,7 @@ jobs:
           sed -i 's/\\n/\n/g' server.key
           echo "${{ secrets.SALESFORCE_USERNAME }}"
 
-    - name: Authenticate with Salesforce
+    - name: Authenticate with Salesforce org
       env:
         SALESFORCE_CONSUMER_KEY: ${{ secrets.SALESFORCE_CONSUMER_KEY }}
         SALESFORCE_USERNAME: ${{ secrets.SALESFORCE_USERNAME }}
