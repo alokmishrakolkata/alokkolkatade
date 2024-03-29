@@ -101,7 +101,7 @@ jobs:
       run: zip -r apex-test-results.zip ./apex-test-results
 
 
-  #send email 
+  #send email with attachment
     - name: Send email
       uses: dawidd6/action-send-mail@v3
       with:
