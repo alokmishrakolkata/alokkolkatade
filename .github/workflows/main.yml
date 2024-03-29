@@ -72,11 +72,44 @@ jobs:
 
     - name: Run Apex Tests excluding Managed Package Tests
       run: |
-        sfdx force:apex:test:run -u ci-scratch-org --testlevel RunLocalTests --codecoverage
+        sfdx force:apex:test:run -u ci-scratch-org --testlevel RunLocalTests --codecoverage --resultformat json --outputdir ./apex-test-results
 
     - name: Run Selenium Tests
       run: |
         source venv/bin/activate
         pwd
         ls -al
-        python tests/selenium/test_test1.py
+        python tests/selenium/test_test1.py --resultfile selenium-test-results.json
+
+    # Additional steps to send email with the test results
+
+    - name: Install SendGrid's sendmail
+      run: |
+        echo "deb [signed-by=/usr/share/keyrings/sendgrid.sendmail.gpg] https://apt.sendgrid.net/sendgrid all main" | sudo tee /etc/apt/sources.list.d/sendgrid.list
+        curl -L https://apt.sendgrid.net/sendgrid-archive-keyring.gpg | sudo gpg --dearmor -o /usr/share/keyrings/sendgrid.sendmail.gpg
+        sudo apt-get update
+        sudo apt-get install sendgrid-sendmail
+
+    - name: Send email
+      uses: dawidd6/action-send-mail@v3
+      with:
+        # Server settings
+        server_address: smtp.gmail.com
+        server_port: 587
+
+        # User settings
+        username: ${{ secrets.EMAIL_USERNAME }}
+        password: ${{ secrets.EMAIL_PASSWORD }}
+
+        # Email settings
+        subject: Salesforce Test Results
+        # List of emails to send to:
+        to: ${{ github.event.pusher.email }}
+        # From which email to send:
+        from: Alok Mishra alokmishrakolkata@gmail.com
+
+        # Mail body
+        body: Here are the Salesforce and Selenium test results attached.
+        
+        # File attachments
+        attachments: 'apex-test-results/test-result.csv,selenium-test-results.csv'
