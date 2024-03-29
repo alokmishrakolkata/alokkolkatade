@@ -99,8 +99,8 @@ def test_sample1():
     modal_element.send_keys("Test Created By Selenium")
 
     # find the Description field
-    desc_field = driver.find_element(By.XPATH, 'driver.findElement(By.xpath("/html[1]/body[1]/div[4]/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/records-modal-lwc-detail-panel-wrapper[1]/records-record-layout-event-broker[1]/slot[1]/records-lwc-detail-panel[1]/records-base-record-form[1]/div[1]/div[2]/div[1]/div[1]/records-lwc-record-layout[1]/forcegenerated-detailpanel_case___012900000019yl1aae___full___create___recordlayout2[1]/records-record-layout-block[1]/slot[1]/records-record-layout-section[4]/div[1]/div[1]/div[1]/slot[1]/records-record-layout-row[2]/slot[1]/records-record-layout-item[1]/div[1]/span[1]/slot[1]/records-record-layout-text-area[1]/lightning-textarea[1]/div[1]/textarea[1]"))')
-    desc_field.send_keys('Test Created By Selenium')
+    #desc_field = driver.find_element(By.XPATH, 'driver.findElement(By.xpath("/html[1]/body[1]/div[4]/div[2]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/records-modal-lwc-detail-panel-wrapper[1]/records-record-layout-event-broker[1]/slot[1]/records-lwc-detail-panel[1]/records-base-record-form[1]/div[1]/div[2]/div[1]/div[1]/records-lwc-record-layout[1]/forcegenerated-detailpanel_case___012900000019yl1aae___full___create___recordlayout2[1]/records-record-layout-block[1]/slot[1]/records-record-layout-section[4]/div[1]/div[1]/div[1]/slot[1]/records-record-layout-row[2]/slot[1]/records-record-layout-item[1]/div[1]/span[1]/slot[1]/records-record-layout-text-area[1]/lightning-textarea[1]/div[1]/textarea[1]"))')
+    #desc_field.send_keys('Test Created By Selenium')
 
     # click on next
     WebDriverWait(driver, 10).until(

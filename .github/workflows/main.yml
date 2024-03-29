@@ -93,6 +93,17 @@ jobs:
         python tests/selenium/test_test1.py --resultfile selenium-test-results.json
         ls -al
 
+    - name: Check if the result file was created
+      run: |
+        if [[ -f selenium-test-results.json ]]; then
+          echo "The result file exists."
+        else
+          echo "The result file does not exist."
+        fi
+
+    - name: List all files for debugging
+      run: ls -la tests/selenium/
+
   #send email with attachment
     - name: Send email
       uses: dawidd6/action-send-mail@v3
