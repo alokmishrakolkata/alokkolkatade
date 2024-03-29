@@ -85,10 +85,6 @@ jobs:
     - name: Compress Results Directory
       run: zip -r apex-test-results.zip ./apex-test-results
 
-    - name: Rename Test Results File
-      run: |
-        mv $(find ./apex-test-results -name '*.json') ./apex-test-results/my_apex_tests_results.json
-
     - name: Run Selenium Tests
       run: |
         source venv/bin/activate
