@@ -1,13 +1,13 @@
 name: Salesforce CI with Selenium Tests
 
-#on:
-#  push:
-#    branches:
-#      #- feature/your-branch-name  # Specify the branch you want to checkout from
-#      - master
-
 on:
-  workflow_dispatch:
+  push:
+    branches:
+      #- feature/your-branch-name  # Specify the branch you want to checkout from
+      - master
+
+#on:
+#  workflow_dispatch:
 
 jobs:
   test-salesforce-app:
