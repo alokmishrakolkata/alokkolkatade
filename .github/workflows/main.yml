@@ -81,6 +81,9 @@ jobs:
       run: |
         sfdx force:apex:test:run -u ci-scratch-org --testlevel RunLocalTests --codecoverage --resultformat json --outputdir ./apex-test-results --synchronous
         ls -al ./apex-test-results
+    
+    - name: Compress Results Directory
+      run: zip -r apex-test-results.zip ./apex-test-results
 
     - name: Rename Test Results File
       run: |
@@ -94,7 +97,10 @@ jobs:
         python tests/selenium/test_test1.py --resultfile selenium-test-results.json
         ls -al
 
-    
+    - name: Compress Results Directory
+      run: zip -r apex-test-results.zip ./apex-test-results
+
+
   #send email 
     - name: Send email
       uses: dawidd6/action-send-mail@v3
