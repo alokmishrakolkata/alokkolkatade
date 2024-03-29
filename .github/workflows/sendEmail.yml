@@ -13,6 +13,7 @@ jobs:
     - name: Create a text file
       run: |
         echo "Hello, this is a test file." > testfile.txt
+        ls al
 
 
     - name: Send Email
