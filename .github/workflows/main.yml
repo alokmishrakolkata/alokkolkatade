@@ -74,10 +74,18 @@ jobs:
       run: |
         sfdx force:source:push -u ci-scratch-org
 
+    - name: Create Apex Test Results Directory
+      run: mkdir -p ./apex-test-results
+
     - name: Run Apex Tests excluding Managed Package Tests
       run: |
         sfdx force:apex:test:run -u ci-scratch-org --testlevel RunLocalTests --codecoverage --resultformat json --outputdir ./apex-test-results
         ls -al ./apex-test-results
+
+    - name: Rename Test Results File
+      run: |
+        mv $(find ./apex-test-results -name '*.json') ./apex-test-results/my_apex_tests_results.json
+
     - name: Run Selenium Tests
       run: |
         source venv/bin/activate

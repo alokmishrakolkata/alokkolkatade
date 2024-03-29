@@ -9,12 +9,18 @@ jobs:
 
 
     steps:
+    - name: Create Apex Test Results Directory
+      run: mkdir -p ./apex-test-results
+
     # Step to create a file
     - name: Create a text file
       run: |
         echo "Hello, this is a test file." > testfile.txt
         ls -al
 
+    - name: Rename Test Results File
+      run: |
+        mv $(find ./apex-test-results -name '*.txt') ./apex-test-results/my_apex_tests_results.json
 
     - name: Send Email
       uses: dawidd6/action-send-mail@v3
