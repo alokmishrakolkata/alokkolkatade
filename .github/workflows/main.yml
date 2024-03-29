@@ -93,10 +93,6 @@ jobs:
         python tests/selenium/test_test1.py --resultfile selenium-test-results.json
         ls -al
 
-    - name: Compress Results Directory
-      run: zip -r apex-test-results.zip ./apex-test-results
-
-
   #send email with attachment
     - name: Send email
       uses: dawidd6/action-send-mail@v3
@@ -124,4 +120,4 @@ jobs:
         body: Here are the Salesforce and Selenium test results attached.
         
         # File attachments
-        attachments: './apex-test-results/my_apex_tests_results.json,selenium-test-results.json'
+        attachments: 'apex-test-results.zip,selenium-test-results.json'
