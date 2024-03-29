@@ -11,7 +11,7 @@ jobs:
     - name: Send Email
       uses: dawidd6/action-send-mail@v3
       with:
-        server_address: smtp.gmail.com
+        server_address: smtp.mail.yahoo.com
         server_port: 465
         secure: true
         ignore_cert: true
@@ -20,8 +20,8 @@ jobs:
         # User settings
         username: ${{ secrets.EMAIL_USERNAME }}
         password: ${{ secrets.EMAIL_PASSWORD }}
-        to: alokmishrajaipur@yahoo.com
-        from: alokmishrakolkata@gmail.com
+        from: alokmishrajaipur@yahoo.com
+        to: alokmishrakolkata@gmail.com
         subject: Test Email
         html_body: This is a test email sent from GitHub Actions.
         
