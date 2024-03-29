@@ -9,7 +9,7 @@ jobs:
 
     steps:
     - name: Send Email
-      uses: hilarion5/send-mail@v1
+      uses: dawidd6/action-send-mail@v3
       with:
         smtp-server: smtp.gmail.com
         smtp-port: 587
