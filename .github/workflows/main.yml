@@ -77,13 +77,14 @@ jobs:
     - name: Run Apex Tests excluding Managed Package Tests
       run: |
         sfdx force:apex:test:run -u ci-scratch-org --testlevel RunLocalTests --codecoverage --resultformat json --outputdir ./apex-test-results
-
+        ls -al ./apex-test-results
     - name: Run Selenium Tests
       run: |
         source venv/bin/activate
         pwd
         ls -al
         python tests/selenium/test_test1.py --resultfile selenium-test-results.json
+        ls -al
 
     
   #send email 
