@@ -91,13 +91,17 @@ jobs:
       uses: dawidd6/action-send-mail@v3
       with:
         # Server settings
-        server_address: smtp.gmail.com
-        server_port: 587
-
+        server_address: smtp.mail.yahoo.com
+        server_port: 465
+        
+        secure: true
+        ignore_cert: true
+        convert_markdown: true
+        priority: low
         # User settings
         username: ${{ secrets.EMAIL_USERNAME }}
         password: ${{ secrets.EMAIL_PASSWORD }}
-
+        
         # Email settings
         subject: Salesforce Test Results
         # List of emails to send to:
