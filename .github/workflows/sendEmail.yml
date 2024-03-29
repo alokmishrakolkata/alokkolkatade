@@ -7,7 +7,14 @@ jobs:
   test-salesforce-app:
     runs-on: ubuntu-latest
 
+
     steps:
+    # Step to create a file
+    - name: Create a text file
+      run: |
+        echo "Hello, this is a test file." > testfile.txt
+
+
     - name: Send Email
       uses: dawidd6/action-send-mail@v3
       with:
@@ -24,4 +31,4 @@ jobs:
         to: alokmishrakolkata@gmail.com
         subject: Test Email
         html_body: This is a test email sent from GitHub Actions.
-        
+        attachments: testfile.txt
