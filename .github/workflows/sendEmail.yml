@@ -38,4 +38,4 @@ jobs:
         to: alokmishrakolkata@gmail.com
         subject: Test Email
         html_body: This is a test email sent from GitHub Actions.
-        attachments: testfile.txt
+        attachments: ./apex-test-results/my_apex_tests_results.txt
