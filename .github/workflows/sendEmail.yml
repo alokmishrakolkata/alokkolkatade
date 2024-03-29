@@ -11,7 +11,7 @@ jobs:
     - name: Send Email
       uses: hilarion5/send-mail@v1
       with:
-        smtp-server: smtp.gmail..com
+        smtp-server: smtp.gmail.com
         smtp-port: 587
         smtp-secure: true
         from-email: alokmishrakolkata@gmail.com
