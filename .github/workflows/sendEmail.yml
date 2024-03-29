@@ -1,4 +1,4 @@
-name: Salesforce CI with Selenium Tests
+name: SendEmailTest
 
 on:
   workflow_dispatch:
