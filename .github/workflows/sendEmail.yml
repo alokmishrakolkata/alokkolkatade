@@ -15,12 +15,12 @@ jobs:
     # Step to create a file
     - name: Create a text file
       run: |
-        echo "Hello, this is a test file." > testfile.txt
+        echo "Hello, this is a test file." > ./apex-test-results/testfile.txt
         ls -al
 
     - name: Rename Test Results File
       run: |
-        mv $(find ./apex-test-results -name '*.txt') ./apex-test-results/my_apex_tests_results.json
+        mv $(find ./apex-test-results -name '*.txt') ./apex-test-results/my_apex_tests_results.txt
 
     - name: Send Email
       uses: dawidd6/action-send-mail@v3
