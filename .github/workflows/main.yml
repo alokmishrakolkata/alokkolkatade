@@ -122,4 +122,4 @@ jobs:
         body: Here are the Salesforce and Selenium test results attached.
         
         # File attachments
-        attachments: 'apex-test-results/test-result.csv,selenium-test-results.csv'
+        attachments: './apex-test-results/my_apex_tests_results.json,selenium-test-results.json'
