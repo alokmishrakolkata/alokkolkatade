@@ -33,6 +33,7 @@ jobs:
         pip install --upgrade pip
         pip install -r tests/requirements.txt
 
+  #install Salesforce CLI
     - name: Install Salesforce CLI
       run: |
         npm install -g sfdx-cli
@@ -81,15 +82,8 @@ jobs:
         ls -al
         python tests/selenium/test_test1.py --resultfile selenium-test-results.json
 
-    # Additional steps to send email with the test results
-
-    - name: Install SendGrid's sendmail
-      run: |
-        echo "deb [signed-by=/usr/share/keyrings/sendgrid.sendmail.gpg] https://apt.sendgrid.net/sendgrid all main" | sudo tee /etc/apt/sources.list.d/sendgrid.list
-        curl -L https://apt.sendgrid.net/sendgrid-archive-keyring.gpg | sudo gpg --dearmor -o /usr/share/keyrings/sendgrid.sendmail.gpg
-        sudo apt-get update
-        sudo apt-get install sendgrid-sendmail
-
+    
+  #send email 
     - name: Send email
       uses: dawidd6/action-send-mail@v3
       with:
