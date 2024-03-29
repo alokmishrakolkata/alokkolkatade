@@ -11,16 +11,17 @@ jobs:
     - name: Send Email
       uses: dawidd6/action-send-mail@v3
       with:
-        smtp-server: smtp.gmail.com
-        smtp-port: 587
-        smtp-secure: true
-        from-email: alokmishrakolkata@gmail.com
-        to-email: alokmishrajaipur@yahoo.com
+        server_address: smtp.gmail.com
+        server_port: 587
+        secure: true
+        ignore_cert: true
+        convert_markdown: true
+        priority: low
         # User settings
         username: ${{ secrets.EMAIL_USERNAME }}
         password: ${{ secrets.EMAIL_PASSWORD }}
+        to: alokmishrajaipur@yahoo.com
+        from: alokmishrakolkata@gmail.com
         subject: Test Email
-        body: This is a test email sent from GitHub Actions.
-        html: |
-          <h1>This is a test email</h1>
-          <p>Test Paragraph</p>
+        html_body: This is a test email sent from GitHub Actions.
+        
