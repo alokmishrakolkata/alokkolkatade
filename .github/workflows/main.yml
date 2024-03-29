@@ -90,8 +90,13 @@ jobs:
         source venv/bin/activate
         pwd
         ls -al
-        python tests/selenium/test_test1.py --resultfile selenium-test-results.json
+        #Temporarily create an empty result file to test permissions
+        touch selenium-test-results.json
+        # Run the Python script and redirect any errors to a log file
+        python tests/selenium/test_test1.py --resultfile selenium-test-results.json 2> error.log
         ls -al
+        # Output any errors that occurred during script execution
+        cat error.log
 
     - name: Check if the result file was created
       run: |
