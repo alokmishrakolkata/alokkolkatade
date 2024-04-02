@@ -1,5 +1,5 @@
-name: Salesforce CI with Selenium Tests
-
+name: Salesforce CI with Selenium Tests for Demo
+ 
 on:
   push:
     branches:

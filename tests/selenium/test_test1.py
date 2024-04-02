@@ -107,7 +107,7 @@ def test_sample1():
         (EC.element_to_be_clickable((By.XPATH, "//button[@name='SaveEdit']")))).click()
 
     # Save screenshot
-    driver.save_screenshot("/Users/alokmishra/Downloads/test.png")
+    driver.save_screenshot("test.png")
 
     # Wait for 3 seconds (just for demonstration purposes)
     time.sleep(3)
