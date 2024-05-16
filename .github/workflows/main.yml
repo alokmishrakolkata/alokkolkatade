@@ -1,4 +1,4 @@
-name: Salesforce CI with Selenium Tests for Demo1
+name: Salesforce CI with Selenium Tests for Demo11
  
 on:
   push:
